@@ -1,0 +1,19 @@
+# Ignore markdown files, except README
+*.md
+!README.md
+
+# Ignore docs directory
+/docs/
+
+# Ignore build outputs
+/target/
+/out/
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
