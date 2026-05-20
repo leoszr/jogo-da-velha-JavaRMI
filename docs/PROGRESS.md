@@ -14,11 +14,11 @@ Use este arquivo para acompanhar execução das tasks.
 | Métrica | Valor |
 |---|---:|
 | Total de tasks | 15 |
-| TODO | 10 |
+| TODO | 9 |
 | IN_PROGRESS | 0 |
-| DONE | 5 |
+| DONE | 6 |
 | BLOCKED | 0 |
-| Progresso | 33% |
+| Progresso | 40% |
 
 ## Checklist por ordem de implementação
 
@@ -29,7 +29,7 @@ Use este arquivo para acompanhar execução das tasks.
 | 3 | [TASK-003 — Remover DTOs do planejamento](tasks/TASK-003-remover-dtos-planejamento.md) | DONE | Planejamento ajustado para tipos simples no RMI |
 | 4 | [TASK-004 — Criar interface remota RMI](tasks/TASK-004-criar-interface-remota-rmi.md) | DONE | Interface criada; enums alinhados ao contrato planejado |
 | 5 | [TASK-005 — Implementar estado inicial da partida](tasks/TASK-005-implementar-estado-inicial-partida.md) | DONE | Estado inicial implementado |
-| 6 | [TASK-006 — Implementar registro de jogadores](tasks/TASK-006-implementar-registro-jogadores.md) | TODO |  |
+| 6 | [TASK-006 — Implementar registro de jogadores](tasks/TASK-006-implementar-registro-jogadores.md) | DONE | Registro de jogadores implementado |
 | 7 | [TASK-007 — Implementar servidor RMI](tasks/TASK-007-implementar-servidor-rmi.md) | TODO |  |
 | 8 | [TASK-008 — Implementar consulta de estado](tasks/TASK-008-implementar-consulta-estado.md) | TODO |  |
 | 9 | [TASK-009 — Implementar renderização do tabuleiro](tasks/TASK-009-implementar-renderizacao-tabuleiro.md) | TODO |  |
@@ -55,6 +55,8 @@ Use este arquivo para acompanhar execução das tasks.
 | 2026-05-20 | TASK-004 | Task concluída (IN_PROGRESS → DONE) | Interface `TicTacToeService` criada; contrato compila |
 | 2026-05-20 | TASK-005 | Task iniciada (TODO → IN_PROGRESS) | Implementação inicial do estado da partida |
 | 2026-05-20 | TASK-005 | Task concluída (IN_PROGRESS → DONE) | Estado inicial compila e valida critérios de aceite |
+| 2026-05-20 | TASK-006 | Task iniciada (TODO → IN_PROGRESS) | Implementação do registro de jogadores |
+| 2026-05-20 | TASK-006 | Task concluída (IN_PROGRESS → DONE) | Registro de jogadores compila e valida critérios de aceite |
 
 ## Como atualizar
 
