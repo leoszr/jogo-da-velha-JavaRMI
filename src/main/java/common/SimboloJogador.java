@@ -1,6 +1,6 @@
 package common;
 
-public enum PlayerSymbol {
+public enum SimboloJogador {
     X,
     O
 }

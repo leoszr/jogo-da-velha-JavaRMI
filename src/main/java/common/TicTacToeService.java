@@ -4,15 +4,15 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 public interface TicTacToeService extends Remote {
-    PlayerSymbol registerPlayer(String playerName) throws RemoteException;
+    SimboloJogador registerPlayer(String playerName) throws RemoteException;
 
     char[] getBoard() throws RemoteException;
 
-    PlayerSymbol getCurrentTurn() throws RemoteException;
+    SimboloJogador getCurrentTurn() throws RemoteException;
 
-    GameStatus getStatus() throws RemoteException;
+    StatusPartida getStatus() throws RemoteException;
 
-    PlayerSymbol getWinner() throws RemoteException;
+    SimboloJogador getWinner() throws RemoteException;
 
     String getMessage() throws RemoteException;
 
