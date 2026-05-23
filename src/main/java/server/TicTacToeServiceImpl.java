@@ -90,7 +90,35 @@ public class TicTacToeServiceImpl extends UnicastRemoteObject implements TicTacT
     }
 
     @Override
-    public boolean makeMove(String playerName, int position) throws RemoteException {
-        return false;
+    public synchronized boolean makeMove(String playerName, int position) throws RemoteException {
+        if (status != StatusPartida.EM_ANDAMENTO) {
+            mensagem = "Partida não está em andamento.";
+            return false;
+        }
+
+        if (playerName == null || (!playerName.equals(jogadorX) && !playerName.equals(jogadorO))) {
+            mensagem = "Jogador não registrado.";
+            return false;
+        }
+
+        SimboloJogador simboloJogador = playerName.equals(jogadorX) ? SimboloJogador.X : SimboloJogador.O;
+        if (simboloJogador != turnoAtual) {
+            mensagem = "Não é turno deste jogador.";
+            return false;
+        }
+
+        if (position < 1 || position > TAMANHO_TABULEIRO) {
+            mensagem = "Posição inválida. Use valores de 1 a 9.";
+            return false;
+        }
+
+        int indiceCasa = position - 1;
+        if (tabuleiro[indiceCasa] != CASA_VAZIA) {
+            mensagem = "Casa já está ocupada.";
+            return false;
+        }
+
+        mensagem = "Jogada válida.";
+        return true;
     }
 }
