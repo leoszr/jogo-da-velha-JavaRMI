@@ -14,11 +14,11 @@ Use este arquivo para acompanhar execução das tasks.
 | Métrica | Valor |
 |---|---:|
 | Total de tasks | 15 |
-| TODO | 8 |
+| TODO | 7 |
 | IN_PROGRESS | 0 |
-| DONE | 7 |
+| DONE | 8 |
 | BLOCKED | 0 |
-| Progresso | 47% |
+| Progresso | 53% |
 
 ## Checklist por ordem de implementação
 
@@ -31,7 +31,7 @@ Use este arquivo para acompanhar execução das tasks.
 | 5 | [TASK-005 — Implementar estado inicial da partida](tasks/TASK-005-implementar-estado-inicial-partida.md) | DONE | Estado inicial implementado |
 | 6 | [TASK-006 — Implementar registro de jogadores](tasks/TASK-006-implementar-registro-jogadores.md) | DONE | Registro de jogadores implementado |
 | 7 | [TASK-007 — Implementar servidor RMI](tasks/TASK-007-implementar-servidor-rmi.md) | DONE | Servidor RMI implementado |
-| 8 | [TASK-008 — Implementar consulta de estado](tasks/TASK-008-implementar-consulta-estado.md) | TODO |  |
+| 8 | [TASK-008 — Implementar consulta de estado](tasks/TASK-008-implementar-consulta-estado.md) | DONE |  |
 | 9 | [TASK-009 — Implementar renderização do tabuleiro](tasks/TASK-009-implementar-renderizacao-tabuleiro.md) | TODO |  |
 | 10 | [TASK-010 — Implementar validação de jogadas](tasks/TASK-010-implementar-validacao-jogadas.md) | TODO |  |
 | 11 | [TASK-011 — Implementar execução de jogada válida](tasks/TASK-011-implementar-execucao-jogada-valida.md) | TODO |  |
@@ -59,6 +59,8 @@ Use este arquivo para acompanhar execução das tasks.
 | 2026-05-20 | TASK-006 | Task concluída (IN_PROGRESS → DONE) | Registro de jogadores compila e valida critérios de aceite |
 | 2026-05-20 | TASK-007 | Task iniciada (TODO → IN_PROGRESS) | Implementação do servidor RMI |
 | 2026-05-20 | TASK-007 | Task concluída (IN_PROGRESS → DONE) | Servidor RMI compila, inicia e publica serviço |
+| 2026-05-23 | TASK-008 | Task iniciada (TODO → IN_PROGRESS) | Implementação de consultas de estado |
+| 2026-05-23 | TASK-008 | Task concluída (IN_PROGRESS → DONE) | Consultas de estado implementadas e compilação validada |
 
 ## Como atualizar
 

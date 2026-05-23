@@ -52,27 +52,40 @@ public class TicTacToeServiceImpl extends UnicastRemoteObject implements TicTacT
     }
 
     @Override
-    public char[] getBoard() throws RemoteException {
+    public synchronized char[] getBoard() throws RemoteException {
         return tabuleiro.clone();
     }
 
     @Override
-    public SimboloJogador getCurrentTurn() throws RemoteException {
+    public synchronized SimboloJogador getCurrentTurn() throws RemoteException {
         return turnoAtual;
     }
 
     @Override
-    public StatusPartida getStatus() throws RemoteException {
+    public synchronized StatusPartida getStatus() throws RemoteException {
         return status;
     }
 
     @Override
-    public SimboloJogador getWinner() throws RemoteException {
+    public synchronized SimboloJogador getWinner() throws RemoteException {
         return null;
     }
 
     @Override
-    public String getMessage() throws RemoteException {
+    public synchronized String getMessage() throws RemoteException {
+        if (status == StatusPartida.AGUARDANDO_JOGADORES) {
+            if (jogadorX == null && jogadorO == null) {
+                return "Aguardando jogadores.";
+            }
+            if (jogadorX != null && jogadorO == null) {
+                return "Aguardando segundo jogador.";
+            }
+        }
+
+        if (status == StatusPartida.EM_ANDAMENTO && (mensagem == null || mensagem.isBlank())) {
+            return "Partida em andamento.";
+        }
+
         return mensagem;
     }
 
