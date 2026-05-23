@@ -14,11 +14,11 @@ Use este arquivo para acompanhar execução das tasks.
 | Métrica | Valor |
 |---|---:|
 | Total de tasks | 15 |
-| TODO | 1 |
+| TODO | 0 |
 | IN_PROGRESS | 0 |
-| DONE | 14 |
+| DONE | 15 |
 | BLOCKED | 0 |
-| Progresso | 93% |
+| Progresso | 100% |
 
 ## Checklist por ordem de implementação
 
@@ -38,7 +38,7 @@ Use este arquivo para acompanhar execução das tasks.
 | 12 | [TASK-012 — Implementar detecção de vitória](tasks/TASK-012-implementar-deteccao-vitoria.md) | DONE |  |
 | 13 | [TASK-013 — Implementar detecção de empate](tasks/TASK-013-implementar-deteccao-empate.md) | DONE |  |
 | 14 | [TASK-014 — Implementar cliente TUI](tasks/TASK-014-implementar-cliente-tui.md) | DONE |  |
-| 15 | [TASK-015 — Documentar execução e teste manual](tasks/TASK-015-documentar-execucao-teste-manual.md) | TODO |  |
+| 15 | [TASK-015 — Documentar execução e teste manual](tasks/TASK-015-documentar-execucao-teste-manual.md) | DONE |  |
 
 ## Histórico
 
@@ -73,6 +73,8 @@ Use este arquivo para acompanhar execução das tasks.
 | 2026-05-23 | TASK-013 | Task concluída (IN_PROGRESS → DONE) | Empate detectado com tabuleiro cheio sem vencedor; status e mensagem atualizados |
 | 2026-05-23 | TASK-014 | Task iniciada (TODO → IN_PROGRESS) | Implementação do cliente TUI |
 | 2026-05-23 | TASK-014 | Task concluída (IN_PROGRESS → DONE) | Cliente terminal criado com loop de jogo, renderização e integração RMI |
+| 2026-05-23 | TASK-015 | Task iniciada (TODO → IN_PROGRESS) | Documentação de execução e teste manual |
+| 2026-05-23 | TASK-015 | Task concluída (IN_PROGRESS → DONE) | README atualizado com pré-requisitos, execução e cenários de teste manual |
 
 ## Como atualizar
 
