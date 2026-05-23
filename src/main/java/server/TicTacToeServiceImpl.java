@@ -17,6 +17,7 @@ public class TicTacToeServiceImpl extends UnicastRemoteObject implements TicTacT
     private SimboloJogador turnoAtual;
     private String jogadorX;
     private String jogadorO;
+    private SimboloJogador vencedor;
     private String mensagem;
 
     public TicTacToeServiceImpl() throws RemoteException {
@@ -68,7 +69,7 @@ public class TicTacToeServiceImpl extends UnicastRemoteObject implements TicTacT
 
     @Override
     public synchronized SimboloJogador getWinner() throws RemoteException {
-        return null;
+        return vencedor;
     }
 
     @Override
@@ -119,8 +120,41 @@ public class TicTacToeServiceImpl extends UnicastRemoteObject implements TicTacT
         }
 
         tabuleiro[indiceCasa] = simboloJogador.name().charAt(0);
+
+        if (verificarVitoria(simboloJogador)) {
+            vencedor = simboloJogador;
+            status = (simboloJogador == SimboloJogador.X) ? StatusPartida.X_VENCEU : StatusPartida.O_VENCEU;
+            mensagem = "Jogador " + simboloJogador + " venceu a partida.";
+            return true;
+        }
+
         turnoAtual = (turnoAtual == SimboloJogador.X) ? SimboloJogador.O : SimboloJogador.X;
         mensagem = "Jogada realizada com sucesso.";
         return true;
+    }
+
+    private boolean verificarVitoria(SimboloJogador simboloJogador) {
+        char simbolo = simboloJogador.name().charAt(0);
+
+        int[][] combinacoesVencedoras = {
+                {0, 1, 2},
+                {3, 4, 5},
+                {6, 7, 8},
+                {0, 3, 6},
+                {1, 4, 7},
+                {2, 5, 8},
+                {0, 4, 8},
+                {2, 4, 6}
+        };
+
+        for (int[] combinacao : combinacoesVencedoras) {
+            if (tabuleiro[combinacao[0]] == simbolo
+                    && tabuleiro[combinacao[1]] == simbolo
+                    && tabuleiro[combinacao[2]] == simbolo) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
