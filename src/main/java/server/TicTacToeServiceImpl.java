@@ -128,6 +128,12 @@ public class TicTacToeServiceImpl extends UnicastRemoteObject implements TicTacT
             return true;
         }
 
+        if (verificarEmpate()) {
+            status = StatusPartida.EMPATE;
+            mensagem = "Partida terminou em empate.";
+            return true;
+        }
+
         turnoAtual = (turnoAtual == SimboloJogador.X) ? SimboloJogador.O : SimboloJogador.X;
         mensagem = "Jogada realizada com sucesso.";
         return true;
@@ -156,5 +162,14 @@ public class TicTacToeServiceImpl extends UnicastRemoteObject implements TicTacT
         }
 
         return false;
+    }
+
+    private boolean verificarEmpate() {
+        for (char casa : tabuleiro) {
+            if (casa == CASA_VAZIA) {
+                return false;
+            }
+        }
+        return true;
     }
 }
