@@ -1,17 +1,34 @@
-## Jogo da Velha com Java RMI
+# Jogo da Velha com Java RMI
 
-Trabalho da matéria de Sistemas Distribuídos realizado pelo grupo 3: Leonardo Rodrigues, Lucas Barreto e Gilmar Gabriel.
+Projeto de Sistemas Distribuídos: jogo da velha em Java com cliente/servidor usando RMI.
 
-## Pré-requisitos
+## O que é
 
-- Java JDK 17+ instalado
-- Terminal Linux/macOS (ou equivalente no Windows)
+- **Servidor**: guarda estado da partida, valida jogadas e define vencedor/empate.
+- **Cliente**: roda no terminal, mostra tabuleiro e envia jogadas.
+- **Comunicação**: Java RMI na porta `1099`.
 
-## Estrutura
+## Requisitos
 
-- `src/main/java/common`: contrato remoto e enums
-- `src/main/java/server`: servidor RMI
-- `src/main/java/client`: cliente TUI e renderização do tabuleiro
+- Java **JDK 17+**
+- Terminal Linux/macOS/Windows
+- Git (se for baixar pelo repositório)
+
+## Como baixar
+
+### Opção 1 — Git
+
+```bash
+git clone https://github.com/leoszr/jogo-da-velha-JavaRMI.git
+cd jogo-da-velha-JavaRMI
+```
+
+### Opção 2 — ZIP
+
+1. Acesse o repositório no GitHub.
+2. Clique em **Code**.
+3. Baixe como **Download ZIP**.
+4. Extraia o arquivo e abra a pasta do projeto no terminal.
 
 ## Como compilar
 
@@ -23,9 +40,9 @@ mkdir -p out
 javac -d out $(find src/main/java -name '*.java')
 ```
 
-## Como executar
+## Como jogar
 
-### 1) Iniciar servidor
+### 1) Iniciar o servidor
 
 Em um terminal:
 
@@ -33,13 +50,13 @@ Em um terminal:
 java -cp out server.ServerMain
 ```
 
-Saída esperada (exemplo):
+Saída esperada:
 
 ```text
 Servidor RMI ativo na porta 1099. Serviço: TicTacToeService
 ```
 
-### 2) Iniciar cliente 1 (jogador X)
+### 2) Abrir o cliente do jogador X
 
 Em outro terminal:
 
@@ -47,9 +64,19 @@ Em outro terminal:
 java -cp out client.ClientMain
 ```
 
-Digite nome, por exemplo: `ana`.
+Digite um nome, por exemplo:
 
-### 3) Iniciar cliente 2 (jogador O)
+```text
+ana
+```
+
+Se der certo, o cliente mostra o símbolo recebido:
+
+```text
+Você entrou como: X
+```
+
+### 3) Abrir o cliente do jogador O
 
 Em outro terminal:
 
@@ -57,40 +84,58 @@ Em outro terminal:
 java -cp out client.ClientMain
 ```
 
-Digite nome, por exemplo: `bia`.
+Digite outro nome, por exemplo:
 
-### 4) Tentar cliente 3 (recusado)
-
-Em outro terminal:
-
-```bash
-java -cp out client.ClientMain
+```text
+bia
 ```
 
-Digite nome, por exemplo: `carlos`.
+O segundo jogador recebe `O`.
 
-Esperado: mensagem de recusa (`Partida cheia.` ou equivalente).
+### 4) Jogar
 
-## Cenário de teste manual
+- O cliente mostra o tabuleiro.
+- Quando for sua vez, digite uma posição de **1 a 9**.
+- Casas vazias mostram números.
+- Casas ocupadas mostram `X` ou `O`.
 
-### Cenário A — validações e vitória
+Exemplo de tabuleiro vazio:
 
-1. Conectar jogador X (`ana`).
-2. Conectar jogador O (`bia`).
-3. Tentar conectar terceiro jogador (`carlos`) e verificar recusa.
-4. Jogada válida de X na posição `1`.
-5. Em X, tentar jogar de novo fora do turno e verificar recusa.
-6. Em O, jogar na posição `1` (ocupada) e verificar recusa.
-7. Finalizar com vitória de X (exemplo):
-   - O joga `4`
-   - X joga `2`
-   - O joga `5`
-   - X joga `3` (X vence)
-8. Verificar status final e vencedor exibidos nos clientes.
+```text
+ 1 | 2 | 3
+-----------
+ 4 | 5 | 6
+-----------
+ 7 | 8 | 9
+```
 
-### Cenário B — empate
+### 5) Regras do jogo
 
-Iniciar nova partida (reinicie servidor e dois clientes) e executar sequência sem vitória:
+- Só entram **2 jogadores**.
+- Primeiro jogador vira `X`.
+- Segundo jogador vira `O`.
+- A partida começa depois do segundo jogador.
+- Jogada fora do turno é recusada.
+- Jogada em casa ocupada é recusada.
+- Partida termina com vitória ou empate.
+
+## Exemplo de partida
+
+### Vitória de X
+
+Sequência:
+
+- X: `1`
+- O: `4`
+- X: `2`
+- O: `5`
+- X: `3`
+
+Resultado: `X` vence.
+
+### Empate
+
+Sequência:
 
 - X: `1`
 - O: `2`
@@ -102,14 +147,26 @@ Iniciar nova partida (reinicie servidor e dois clientes) e executar sequência s
 - O: `7`
 - X: `9`
 
-Esperado:
+Resultado: empate.
 
-- Status final de empate.
-- Mensagem de empate.
-- Novas jogadas recusadas após término.
+## Cenários para testar
+
+- Conectar jogador `X`
+- Conectar jogador `O`
+- Tentar conectar terceiro jogador
+- Tentar jogar fora do turno
+- Tentar jogar em casa ocupada
+- Finalizar com vitória
+- Finalizar com empate
 
 ## Observações
 
-- O cliente consulta estado do servidor em loop.
-- Jogada só é solicitada no turno do jogador local.
-- Mensagens de erro/estado são exibidas no terminal.
+- O servidor fica em execução até ser parado manualmente.
+- O cliente consulta o estado da partida em loop.
+- Se o servidor cair, o cliente exibirá erro de conexão.
+
+## Estrutura do projeto
+
+- `src/main/java/common`: contrato remoto e enums
+- `src/main/java/server`: implementação e bootstrap do servidor
+- `src/main/java/client`: cliente de terminal e renderização do tabuleiro
