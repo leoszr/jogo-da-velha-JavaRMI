@@ -118,7 +118,9 @@ public class TicTacToeServiceImpl extends UnicastRemoteObject implements TicTacT
             return false;
         }
 
-        mensagem = "Jogada válida.";
+        tabuleiro[indiceCasa] = simboloJogador.name().charAt(0);
+        turnoAtual = (turnoAtual == SimboloJogador.X) ? SimboloJogador.O : SimboloJogador.X;
+        mensagem = "Jogada realizada com sucesso.";
         return true;
     }
 }

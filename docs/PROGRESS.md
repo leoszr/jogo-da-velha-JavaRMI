@@ -14,11 +14,11 @@ Use este arquivo para acompanhar execução das tasks.
 | Métrica | Valor |
 |---|---:|
 | Total de tasks | 15 |
-| TODO | 5 |
+| TODO | 4 |
 | IN_PROGRESS | 0 |
-| DONE | 10 |
+| DONE | 11 |
 | BLOCKED | 0 |
-| Progresso | 67% |
+| Progresso | 73% |
 
 ## Checklist por ordem de implementação
 
@@ -34,7 +34,7 @@ Use este arquivo para acompanhar execução das tasks.
 | 8 | [TASK-008 — Implementar consulta de estado](tasks/TASK-008-implementar-consulta-estado.md) | DONE |  |
 | 9 | [TASK-009 — Implementar renderização do tabuleiro](tasks/TASK-009-implementar-renderizacao-tabuleiro.md) | DONE |  |
 | 10 | [TASK-010 — Implementar validação de jogadas](tasks/TASK-010-implementar-validacao-jogadas.md) | DONE |  |
-| 11 | [TASK-011 — Implementar execução de jogada válida](tasks/TASK-011-implementar-execucao-jogada-valida.md) | TODO |  |
+| 11 | [TASK-011 — Implementar execução de jogada válida](tasks/TASK-011-implementar-execucao-jogada-valida.md) | DONE |  |
 | 12 | [TASK-012 — Implementar detecção de vitória](tasks/TASK-012-implementar-deteccao-vitoria.md) | TODO |  |
 | 13 | [TASK-013 — Implementar detecção de empate](tasks/TASK-013-implementar-deteccao-empate.md) | TODO |  |
 | 14 | [TASK-014 — Implementar cliente TUI](tasks/TASK-014-implementar-cliente-tui.md) | TODO |  |
@@ -65,6 +65,8 @@ Use este arquivo para acompanhar execução das tasks.
 | 2026-05-23 | TASK-009 | Task concluída (IN_PROGRESS → DONE) | Utilitário de renderização criado no cliente e compilação validada |
 | 2026-05-23 | TASK-010 | Task iniciada (TODO → IN_PROGRESS) | Implementação de validação de jogadas |
 | 2026-05-23 | TASK-010 | Task concluída (IN_PROGRESS → DONE) | Validações de jogada implementadas sem alterar tabuleiro em caso inválido |
+| 2026-05-23 | TASK-011 | Task iniciada (TODO → IN_PROGRESS) | Implementação da execução de jogada válida |
+| 2026-05-23 | TASK-011 | Task concluída (IN_PROGRESS → DONE) | Jogada válida agora marca tabuleiro, alterna turno e retorna sucesso |
 
 ## Como atualizar
 
